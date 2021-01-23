@@ -12,7 +12,12 @@ class Credential:
         self.clearance = clearance
 
 class COVID:
-    pass
+    def __init__(self, date, actual_date,  dice, days, validity):
+        self.date = date
+        self.actual_date = actual_date
+        self.dice = dice
+        self.days = days
+        self.validity = validity
 
 
 
