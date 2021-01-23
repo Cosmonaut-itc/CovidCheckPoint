@@ -15,6 +15,11 @@ class COVID:
         self.mask = mask
         self.dice = dice
 
+def assignCredential(name, status, area, clearance):
+    return Credential(name,status,area,clearance)
+
+
+
 while True:
     print('''
                                                                                                                                                                                 ,----, 
@@ -54,9 +59,17 @@ while True:
     ''')
     user_input = input()
     if user_input == 1:
-        dia1 = {
-            "credencial": Credential("Felix","Activo","IT",4)
-        }
+        for i in range(3):
+            print("Dia" + i+1)
+            if i == 0:
+                for i in range(3):
+                    pass
+            if i == 1:
+                for i in range(4):
+                    pass
+            if i == 2:
+                for i in range(5):
+                    pass
     else:
         break
 
