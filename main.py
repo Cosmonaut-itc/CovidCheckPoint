@@ -8,18 +8,12 @@ class Credential:
         self.clearance = clearance
 
 class COVID:
-    def __init__(self, date, days, validity):
+    def __init__(self, date, days, validity, mask, dice):
         self.date = date
         self.days = days
         self.validity = validity
-
-class Mask: 
-    def __init__(self, wearsMask):
-        self.wearsMask = wearsMask
-
-class Dice: 
-    def __init__(self, probability):
-        self.probability = probability
+        self.mask = mask
+        self.dice = dice
 
 while True:
     print('''
