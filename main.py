@@ -1,3 +1,4 @@
+import requests
 
 class Credential:
     def __init__(self, name, status, area, clearance):
@@ -5,3 +6,10 @@ class Credential:
         self.status = status
         self.area = area
         self.clearance = clearance
+
+class COVID:
+    pass
+
+class Person:
+    pass
+
