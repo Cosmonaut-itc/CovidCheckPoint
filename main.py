@@ -3,7 +3,7 @@ import requests
 response = requests.get("http://api.name-fake.com/random/random.json")
 name = response.json()
 
-
+print("Welcome to CovidCheck!")
 
 class Credential:
     def __init__(self, name, status, area, clearance):
