@@ -19,6 +19,8 @@ class COVID:
         self.days = days
         self.validity = validity
 
-
+class Mask: 
+    def __init__(self, wearsMask):
+        self.wearsMask = wearsMask
 
 
