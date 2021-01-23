@@ -8,15 +8,15 @@ class Credential:
         self.clearance = clearance
 
 class COVID:
-    def __init__(self, date, days, validity, mask, dice):
+    def __init__(self, date,mask):
         self.date = date
-        self.days = days
-        self.validity = validity
         self.mask = mask
-        self.dice = dice
 
 def assignCredential(name, status, area, clearance):
     return Credential(name,status,area,clearance)
+
+def assignCovid(date,mask):
+    return COVID(date,mask)
 
 
 
@@ -64,10 +64,10 @@ while True:
             if i == 0:
                 for i in range(3):
                     pass
-            if i == 1:
+            elif i == 1:
                 for i in range(4):
                     pass
-            if i == 2:
+            elif i == 2:
                 for i in range(5):
                     pass
     else:
