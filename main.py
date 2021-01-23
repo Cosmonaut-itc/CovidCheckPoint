@@ -52,7 +52,7 @@ while True:
   ___       _____       _ _      
  |__ \     / ____|     | (_)     
     ) |   | (___   __ _| |_ _ __ 
-   / /     \___ \ / _` | | | '__|
+   / /     \___ \ / _` | | | '__|1
   / /_ _   ____) | (_| | | | |   
  |____(_) |_____/ \__,_|_|_|_|   
                                  
@@ -60,7 +60,9 @@ while True:
     ''')
     user_input = input()
     if user_input == 1:
-        pass
+        dia1 = {
+            "credencial": Credential("Felix","Activo","IT",4)
+        }
     else:
         break
 
