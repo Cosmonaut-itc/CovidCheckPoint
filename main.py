@@ -1,4 +1,4 @@
-import requests
+import names
 
 class Credential:
     def __init__(self, name, status, area, clearance):
