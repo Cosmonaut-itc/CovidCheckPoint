@@ -1,8 +1,8 @@
 import requests
 
 response = requests.get("http://api.name-fake.com/random/random.json")
-nameID = response.json()['name']
-print(nameID)
+response_ID = response.json()['name']
+print(response_ID)
 
 class Credential:
     def __init__(self, name, status, area, clearance):
