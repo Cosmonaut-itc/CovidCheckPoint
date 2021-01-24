@@ -1,6 +1,18 @@
 import names
 import random
 
+class Player:
+    health = 3
+    def __init__(self, points):
+        self.points = points
+    def health_r():
+        health = health - 1
+    def points_change(add_or_sub, streak):
+        if add_or_sub == "add":
+            self.points = (self.points + 100) * streak
+        else
+            self.points = self.points - 100
+
 class Credential:
     def __init__(self, name, status, area, clearance):
         self.name = name
@@ -20,20 +32,16 @@ class COVID:
 def assignCredential():
     number = random.randint(0,1)
     if number == 0:
-        worker = "No worker"
+        worker = "Fired"
     else:
         worker = "Worker"
     number = random.randint(0,4)
     areas = ["Information Technology", "Admin", "Human Resources", "Accountancy", "Manofacture"]
-    number = random.randint(0,1)
-    if number == 0:
-        bool_clearance = False
-    else:
-        bool_clearance = True
-    return Credential(names.get_full_name(),worker,areas[number], bool_clearance)
+    clearance_number = random.randint(0,3)
+    return Credential(names.get_full_name(),worker,areas[number], clearance_number)
 
 def assignCovid():
-    last_check = random.randint(1, 31)
+    last_check = random.randint(1, 30)
     number = random.randint(0, 1)
     if number == 0:
         mask = "No"
@@ -41,7 +49,21 @@ def assignCovid():
         mask = "Yes"
     return COVID(last_check ,mask)
 
-def access():
+def access(status, clearance, last_check, mask):
+    if status == "Worker" and clearance != 0 and mask == true:
+        last_check = last_check - 18
+        if last_check > 0:
+            last_check = last_check * 5
+            random_number = random.randint(0, 100)
+            if (random_number <= last_check):
+                return False
+            else
+                return True
+        else
+            return True
+    else
+        return False
+
 
 
 
@@ -86,15 +108,37 @@ while True:
     print ("\n")
     if user_input == 1:
         for i in range(0,3):
-            print("Dia " + str(i+1))
+            print("Day " + str(i+1))
+            streak = 1
             if i == 0:
                 for i in range(0, 3):
-                    person = assignCredential()
-                    print(person)
+                    person_credential = assignCredential()
+                    person_covid = assignCovid()
+                    print(person_credential)
+                    print(person_covid)
+                    print("\n")
                     user_answer = input("Give access to the person? (Y)es, (N)o\n")
-                    if user_answer == "Y":
-                        
-                    else:
+                    while True:
+                        if user_answer == "Y":
+                            access_answer = access(person_credential.status, person_credential.clearance, person_covid.last_check, person_covid.mask)
+                            if access_answer == False:
+                                #quitar vida y quitar racha de puntos
+                                streak = 1
+                            else:
+                                #Subir puntos y aumentar racha de puntos
+                                pass
+                            break
+                        elif user_answer == "N":
+                            access_answer = access(person_credential.status, person_credential.clearance, person_covid.last_check, person_covid.mask)
+                            if access_answer == True:
+                                #quitar vida y quitar racha de puntos
+                                streak = 1
+                            else:
+                                #Subir puntos y aumentar racha de puntos 
+                                pass
+                            break
+                        else:
+                            print("Invalid character, try again!\n")
 
                     print("\n")
             elif i == 1:
