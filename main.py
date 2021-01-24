@@ -5,12 +5,13 @@ class Player:
     health = 3
     def __init__(self, points):
         self.points = points
-    def health_r():
-        health = health - 1
-    def points_change(add_or_sub, streak):
+    def health_r(self):
+        self.health = self.health - 1
+        print("health: " + str(self.health))
+    def points_change(self, add_or_sub, streak):
         if add_or_sub == "add":
             self.points = (self.points + 100) * streak
-        else
+        else:
             self.points = self.points - 100
 
 class Credential:
@@ -30,7 +31,7 @@ class COVID:
         return f"Last Coronavirus Checkout: {self.last_check}\nWearing Mask: {self.mask}"
 
 def assignCredential():
-    number = random.randint(0,1)
+    number = random.randint(0,3)
     if number == 0:
         worker = "Fired"
     else:
@@ -50,24 +51,24 @@ def assignCovid():
     return COVID(last_check ,mask)
 
 def access(status, clearance, last_check, mask):
-    if status == "Worker" and clearance != 0 and mask == true:
+    if status == "Worker" and clearance != 0 and mask == True:
         last_check = last_check - 18
         if last_check > 0:
             last_check = last_check * 5
             random_number = random.randint(0, 100)
             if (random_number <= last_check):
                 return False
-            else
+            else:
                 return True
-        else
+        else:
             return True
-    else
+    else:
         return False
 
 
 
-
 while True:
+    
     print('''
                                                                                                                                                                                 ,----, 
                ,----..                                                               ,--,                            ,--.,-.----.       ,----..                    ,--.      ,/   .`| 
@@ -106,47 +107,59 @@ while True:
     ''')
     user_input = int(input("Select an option: "))
     print ("\n")
-    if user_input == 1:
-        for i in range(0,3):
-            print("Day " + str(i+1))
-            streak = 1
-            if i == 0:
-                for i in range(0, 3):
-                    person_credential = assignCredential()
-                    person_covid = assignCovid()
-                    print(person_credential)
-                    print(person_covid)
-                    print("\n")
-                    user_answer = input("Give access to the person? (Y)es, (N)o\n")
-                    while True:
-                        if user_answer == "Y":
-                            access_answer = access(person_credential.status, person_credential.clearance, person_covid.last_check, person_covid.mask)
-                            if access_answer == False:
-                                #quitar vida y quitar racha de puntos
-                                streak = 1
-                            else:
-                                #Subir puntos y aumentar racha de puntos
-                                pass
-                            break
-                        elif user_answer == "N":
-                            access_answer = access(person_credential.status, person_credential.clearance, person_covid.last_check, person_covid.mask)
-                            if access_answer == True:
-                                #quitar vida y quitar racha de puntos
-                                streak = 1
-                            else:
-                                #Subir puntos y aumentar racha de puntos 
-                                pass
-                            break
+    if (user_input == 1):
+        player = Player(0)
+        i = 1
+        people = 3
+        streak = 1
+        while player.health != 0:
+            print("Day: " + str(i) + ", health: " + str(player.health) + ", points: " + str(player.points))
+            for i in range(0, people):
+                print("Health: " + str(player.health) + ", points: " + str(player.points) + "\n")                
+                print("Information please! \n.\n.\n.")
+                person_credential = assignCredential()
+                person_covid = assignCovid()
+                print(person_credential)
+                print(person_covid)
+                print("\n")
+                user_answer = input("Give access to the person? (Y)es, (N)o\n")
+                while True:
+                    if user_answer == "Y":
+                        access_answer = access(person_credential.status, person_credential.clearance, person_covid.last_check, person_covid.mask)
+                        if access_answer == False:
+                            #quitar vida y quitar racha de puntos
+                            player.health_r()
+                            streak = 1
+                            player.points_change("sub", streak)
                         else:
-                            print("Invalid character, try again!\n")
-
-                    print("\n")
-            elif i == 1:
-                for i in range(0, 4):
-                    pass
-            elif i == 2:
-                for i in range(0, 5):
-                    pass
+                            #Subir puntos y aumentar racha de puntos
+                            streak = streak + 1
+                            player.points_change("add", streak)
+                        break
+                    elif user_answer == "N":
+                        access_answer = access(person_credential.status, person_credential.clearance, person_covid.last_check, person_covid.mask)
+                        if access_answer == True:
+                            #quitar vida y quitar racha de puntos
+                            player.health_r()
+                            streak = 1
+                            player.points_change("sub", streak)
+                        else:
+                            #Subir puntos y aumentar racha de puntos 
+                            streak = streak + 1
+                            player.points_change("add", streak)
+                        break
+                    else:
+                        print("Invalid character, try again!\n")
+                i = i + 1
+                people = people + 1
+                if i == people:
+                    print("The day has ended! \n.\n.\n.")
+                print("\n")
+        answer = input("Do you want to play again? (Y)es or (N)o\n")
+        if answer == "Y":
+            pass
+        else:
+            break
     else:
         break
 
