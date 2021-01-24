@@ -25,13 +25,13 @@ Employee has successfull access if:
 - his/her credential is a worker credential
 - his/her clearance level is up to 0
 - Has mask on
-- last check status is minor than 18 days
+- last check status is minor than 15 days
 
 Employee has denied access if:
 - His/her credential is a fired worker
 - cleareance level is equal to 0
 - Does not have a mask
-- Last check status is greater than 18 days
+- Last check status is greater than 15 days (if you get unlucky, maybe a person who has more than 15 days could enter also, because there is a percentage that is calculated about the extra days he hasnt checked and if the dice gets less or equal for the percentage, that person could have entered and you loose a life, its about luck sometimes)
 
 
 
