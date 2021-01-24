@@ -11,7 +11,7 @@ The game works in this way:
 - You have 3 lives to reach as much score as you can doing no errors while
 you accept or not employees. (Every day that passes is an extra live).
 
-- if you give access to a person who does not have authorization, you are going to
+- If you give access to a person who does not have authorization, you are going to
 lose a live, same way if you dont give access to people that have everything in
 order.
 
