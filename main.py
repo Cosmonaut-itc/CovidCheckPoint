@@ -97,7 +97,7 @@ while True:
   ___       _____       _ _      
  |__ \     / ____|     | (_)     
     ) |   | (___   __ _| |_ _ __ 
-   / /     \___ \ / _` | | | '__|1
+   / /     \___ \ / _` | | | '__|
   / /_ _   ____) | (_| | | | |   
  |____(_) |_____/ \__,_|_|_|_|   
                                  
@@ -150,6 +150,8 @@ while True:
                         print("Invalid character, try again!\n")
                 i = i + 1
                 people = people + 1
+                if player.health == 0:
+                    break
                 if i == people:
                     print("The day has ended! \n.\n.\n.")
                 print("\n")
