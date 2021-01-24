@@ -12,7 +12,7 @@ The game works in this way:
 you accept or not employees. (Every day that passes is an extra live).
 
 - If you give access to a person who does not have authorization, you are going to
-lose a live, same way if you dont give access to people that have everything in
+loose a live, same way if you dont give access to people that have everything in
 order.
 
 - If you have no mistakes while playing you can get streaks, this will boost your
