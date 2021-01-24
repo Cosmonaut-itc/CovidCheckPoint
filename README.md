@@ -40,4 +40,4 @@ Resources
   - import names
   - pip installer
   
-It also contains the .exe file to run the program in Windows
+It also contains the .exe file to run the program in Windows (it is recommended to maximize the .exe screen when it is oppended)
