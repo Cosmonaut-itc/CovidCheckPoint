@@ -45,9 +45,9 @@ def assignCovid():
     last_check = random.randint(1, 30)
     number = random.randint(0, 1)
     if number == 0:
-        mask = "No"
+        mask = False
     else:
-        mask = "Yes"
+        mask = True
     return COVID(last_check ,mask)
 
 def access(status, clearance, last_check, mask):
