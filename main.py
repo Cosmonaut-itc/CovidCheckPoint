@@ -1,5 +1,4 @@
 import names
-import random
 
 class Player:
     health = 3
