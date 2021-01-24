@@ -35,3 +35,7 @@ Employee has denied access if:
 
 
 
+Resources 
+  - python3
+  - import names
+  - pip installer
