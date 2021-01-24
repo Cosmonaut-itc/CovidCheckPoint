@@ -1,9 +1,6 @@
 # CovidCheckPoint
  This project was done in the Intern Hackathon 2021.
 
-# CovidCheckPoint
- This project was done in the Intern Hackathon 2021.
-
 Welcome to CovidCheckPoint, the main purpose of this game is to
 evaluate different data about employees in a company. This game is
 inspired in an existing game called "PapersPlease" but in this one
