@@ -34,5 +34,6 @@ Employee has denied access if:
 - Last check status is greater than 18 days
 
 
-- Resources 
+
+Resources 
   - import names
