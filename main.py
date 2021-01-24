@@ -8,6 +8,9 @@ class Player:
     def health_r(self):
         self.health = self.health - 1
         print("health: " + str(self.health))
+    def health_s(self):
+        self.health = self.health + 1
+        print("health: " + str(self.health))
     def points_change(self, add_or_sub, streak):
         if add_or_sub == "add":
             self.points = (self.points + 100) * streak
@@ -107,11 +110,11 @@ while True:
     print ("\n")
     if (user_input == 1):
         player = Player(0)
-        i = 1
+        day = 1
         people = 3
         streak = 1
         while player.health != 0:
-            print("Day: " + str(i) + ", health: " + str(player.health) + ", points: " + str(player.points))
+            print("Day: " + str(day) + ", health: " + str(player.health) + ", points: " + str(player.points))
             for i in range(0, people):
                 print("Health: " + str(player.health) + ", points: " + str(player.points) + "\n")                
                 print("Information please! \n.\n.\n.")
@@ -121,6 +124,7 @@ while True:
                 print(person_covid)
                 print("\n")
                 user_answer = input("Give access to the person? (Y)es, (N)o\n")
+                user_answer.upper()
                 while True:
                     if user_answer == "Y":
                         access_answer = access(person_credential.status, person_credential.clearance, person_covid.last_check, person_covid.mask)
@@ -148,17 +152,23 @@ while True:
                         break
                     else:
                         print("Invalid character, try again!\n")
-                i = i + 1
+                day = i + 1
                 people = people + 1
                 if player.health == 0:
+                    ##############
+                    print(""#####) #GAME OVER
                     break
                 if i == people:
                     print("The day has ended! \n.\n.\n.")
+                    player.health_s()
+                    streak = 1
                 print("\n")
         answer = input("Do you want to play again? (Y)es or (N)o\n")
         if answer == "Y":
             pass
         else:
             break
-    else:
+    elif user_input == 2:
         break
+    else: 
+        print("Invalid number, try again!\n")
