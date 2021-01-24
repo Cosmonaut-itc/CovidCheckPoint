@@ -7,6 +7,7 @@ class Player:
         self.points = points
     def health_r(self):
         self.health = self.health - 1
+        print("You loosed one health! watch your movements")
         print("health: " + str(self.health))
     def health_s(self):
         self.health = self.health + 1
@@ -132,6 +133,7 @@ while True:
                 user_answer.upper()
                 while True:
                     if user_answer == "Y":
+                        print("\nThanks!\n")
                         access_answer = access(person_credential.status, person_credential.clearance, person_covid.last_check, person_covid.mask)
                         if access_answer == False:
                             #quitar vida y quitar racha de puntos
@@ -157,9 +159,11 @@ while True:
                         break
                     else:
                         print("Invalid character, try again!\n")
-                day = i + 1
-                people = people + 1
+                        user_answer = input("Give access to the person? (Y)es, (N)o\n")
+                        user_answer.upper()
+                
                 if player.health == 0:
+                    print("\nYou loosed your job\n")
                     print('''
                         
    _____          __  __ ______    ______      ________ _____  
@@ -173,10 +177,13 @@ while True:
 
                     ''')
                     break
-                if i == people:
+                if i == (people - 1):
                     print("The day has ended! \n.\n.\n.")
+                    day = day + 1
+                    people = people + 1
                     player.health_s()
                     streak = 1
+                    break
                 print("\n")
         answer = input("Do you want to play again? (Y)es or (N)o\n")
         if answer == "Y":
@@ -187,3 +194,4 @@ while True:
         break
     else: 
         print("Invalid number, try again!\n")
+        pass
